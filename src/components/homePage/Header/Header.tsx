@@ -36,7 +36,7 @@ function Header({}: Props) {
   return (
     <>
       <div
-        className={`h-[10vh] bg-${themeContext?.primaryColor} max-h-[10vh] fixed top-0 w-full z-50`}
+        className={`h-[10vh] min-h-[10vh] max-h-[10vh] bg-${themeContext?.primaryColor} max-h-[10vh] fixed top-0 w-full z-50`}
       >
         <div className="flex justify-between h-full items-center w-[90%] lg:w-[80%] mx-auto">
           <h1 className="text-white">MyFood</h1>

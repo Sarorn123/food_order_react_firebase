@@ -71,7 +71,7 @@ function CartList({ isOpen }: Props) {
       ) : (
         <>
           {
-            <div className="flex justify-between my-2 items-center">
+            <div className="flex justify-between my-2 md:my-10 lg:my-2 items-center  overflow-auto">
               {updateQuantityLoading ? (
                 <button
                   className={`bg-gray-400 text-sm px-3 py-2 text-white rounded-md mt-1 shadow-md shadow-green-200`}
@@ -94,7 +94,7 @@ function CartList({ isOpen }: Props) {
                     onChange={(e) => setTable(e.target.value)}
                   >
                     <option value="" defaultChecked>
-                      Select Your Table
+                    Table
                     </option>
                     <option value="1">1</option>
                     <option value="2">2</option>

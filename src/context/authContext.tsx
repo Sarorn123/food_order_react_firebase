@@ -15,6 +15,8 @@ import { useNavigate } from "react-router-dom";
 import {
   addDoc,
   collection,
+  doc,
+  getDoc,
   getDocs,
   getFirestore,
   query,
@@ -37,10 +39,7 @@ interface AuthData {
     password: string,
     displayName: string
   ) => any;
-  signInEmailPassword: (
-    email: string,
-    password: string,
-  ) => any;
+  signInEmailPassword: (email: string, password: string) => any;
 }
 
 const AuthContext = React.createContext<AuthData | null>(null);
@@ -76,14 +75,32 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   const signInPopup = () => {
     signInWithPopup(auth, provider)
       .then(async (result) => {
-        await addDoc(collection(db, "user_info"), {
-          user_id: result.user.uid,
-          role: "User",
-        }).then(() => {
-          setCurrentUser(result.user);
-          navigate("/");
-          setLoading(false);
+        const q = query(
+          collection(db, "user_info"),
+          where("user_id", "==", result.user.uid)
+        );
+
+        const querySnapshot = await getDocs(q);
+        let user_info = null;
+        querySnapshot.forEach((doc) => {
+          user_info = doc.data();
+          return;
         });
+        if (!user_info) {
+          await addDoc(collection(db, "user_info"), {
+            user_id: result.user.uid,
+            role: "User",
+          }).then(() => {
+            setCurrentUser(result.user);
+            navigate("/");
+            setLoading(false);
+            return;
+          });
+        }
+
+        setCurrentUser(result.user);
+        navigate("/");
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -135,7 +152,7 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
         err = error.message;
       });
 
-      return err;
+    return err;
   };
 
   const logOut = async () => {
@@ -151,7 +168,7 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
         logOut,
         role,
         SignUpWithEmailAndPassword,
-        signInEmailPassword
+        signInEmailPassword,
       }}
     >
       {children}

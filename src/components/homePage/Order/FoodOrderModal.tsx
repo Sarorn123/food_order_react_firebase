@@ -29,7 +29,7 @@ function FoodOrderModal({ id, toggleModal }: Props): ReactElement {
           toggleModal(false);
         }}
       ></div>
-      <div className="w-[50%] p-10  bg-white z-50 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md">
+      <div className="w-[90%] md:w-[70%] lg:w-[50%] p-10  bg-white z-50 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md">
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-slate-500 font-semibold capitalize">
