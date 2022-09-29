@@ -8,6 +8,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import FoodList from "./FoodList/FoodList";
 import OrderHistory from './OrderHistory/OrderHistory';
 import Permission from "./Permission/Permission";
+import About from "./About/About";
 
 interface Props {}
 
@@ -17,13 +18,13 @@ function HomePage({}: Props): ReactElement {
       <Header />
       <div className="flex">
         <Sidebar />
-        <div className="px-2 lg:px-5 w-[80%] absolute right-0 mt-[15vh]">
+        <div className="px-2 lg:px-5 w-[90%] md:w-[80%] absolute right-0 mt-[15vh]">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/food-list" element={<FoodList />} />
             <Route path="/order" element={<Order />} />
             <Route path="/order-history" element={<OrderHistory />} />
-            <Route path="/permission" element={<Permission />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </div>
       </div>

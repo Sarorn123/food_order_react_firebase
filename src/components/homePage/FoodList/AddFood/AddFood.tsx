@@ -24,7 +24,6 @@ function AddFood({}: Props) {
           })
         )
       );
-      console.log(accepedFiles);
     },
   });
 

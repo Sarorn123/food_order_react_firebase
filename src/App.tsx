@@ -6,6 +6,7 @@ import SignUp from "./components/auth/SignUp";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ThemeContextProvider from "./context/themeContext";
 import AuthContextProvider from "./context/authContext";
+import React from "react";
 
 const App: FC = () => {
   return (

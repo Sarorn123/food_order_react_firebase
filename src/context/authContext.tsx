@@ -89,7 +89,7 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
         if (!user_info) {
           await addDoc(collection(db, "user_info"), {
             user_id: result.user.uid,
-            role: "User",
+            role: "Admin",
           }).then(() => {
             setCurrentUser(result.user);
             navigate("/");

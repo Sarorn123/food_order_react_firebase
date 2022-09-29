@@ -12,9 +12,6 @@ interface Props {
 
 function FoodOrderModal({ id, toggleModal }: Props): ReactElement {
   const [order, setOrder] = useState<OrderInterface>();
-
-  console.log(order);
-
   useEffect(() => {
     getOneOrder(id, setOrder);
   }, []);
@@ -45,7 +42,7 @@ function FoodOrderModal({ id, toggleModal }: Props): ReactElement {
               className={`p-2 rounded-md bg-${themeContext?.primaryColor} text-white shadow-md shadow-green-200 active:bg-gray-400`}
               onClick={() => makeOrderDone(id)}
             >
-              Make it Doned
+              MakeDone
             </button>
           )}
         </div>

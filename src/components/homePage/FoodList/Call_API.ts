@@ -50,7 +50,6 @@ export const getWhere = async () => {
     const data = querySnapshot.forEach((doc) => {
         return doc.data();
     });
-    console.log(data);
 }
 
 export const deleteFood = async (id: string, image_path: string, setLoading: any) => {

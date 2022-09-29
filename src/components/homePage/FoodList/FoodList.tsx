@@ -34,7 +34,7 @@ function FoodList({}: Props) {
       <CartDrawer isOpen={openCart} setIsOpen={setOpenCart} />
       {!authContext?.loading && (
         <div className="w-full flex justify-between items-center">
-          <h1 className="text-lg text-gray-400 font-semibold">Food List</h1>
+          <h1 className="text-gray-500 font-bold ">Food List</h1>
           <div className="flex items-center ">
             {authContext?.role !== "User" && (
               <button

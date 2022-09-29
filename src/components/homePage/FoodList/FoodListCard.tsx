@@ -87,7 +87,7 @@ const FootListCard = ({
                 onClick={addFood}
                 disabled={orderLoading}
               >
-                {orderLoading ? "Loading..." : carted ? "Added" : "Order"}
+                {orderLoading ? "Loading..." : carted ? "Added" : "Add"}
               </button>
             ))}
 

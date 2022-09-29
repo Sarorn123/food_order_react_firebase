@@ -17,9 +17,6 @@ function Table({ data }: OrderTableInterface): ReactElement {
   const toggleModal = (action: boolean) => {
     setOpenOrderFood(action);
   };
-
-  console.log(data);
-
   return (
     <>
       {openOrderFood && <FoodOrderModal id={id} toggleModal={toggleModal} />}

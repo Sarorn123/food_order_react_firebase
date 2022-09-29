@@ -6,6 +6,7 @@ import { useAuthContext } from "../../../context/authContext";
 import { AiOutlineBgColors } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import { getNotification } from "./Api_Call";
+import {MdOutlineFastfood} from "react-icons/md"
 
 type Props = {};
 
@@ -39,7 +40,7 @@ function Header({}: Props) {
         className={`h-[10vh] min-h-[10vh] max-h-[10vh] bg-${themeContext?.primaryColor} max-h-[10vh] fixed top-0 w-full z-50`}
       >
         <div className="flex justify-between h-full items-center w-[90%] lg:w-[80%] mx-auto">
-          <h1 className="text-white">MyFood</h1>
+          <MdOutlineFastfood className="text-3xl font-bold text-white" />
           <div className="flex items-center text-white">
             <p className="mr-2 lg:mr-4 text-sm">{authContext?.role}</p>
 

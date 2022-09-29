@@ -40,9 +40,7 @@ const OrderHistory = (props: Props) => {
 
   return (
     <div>
-      <h1 className="text-lg font-semibold  text-gray-400 my-4">
-        Your History
-      </h1>
+      <h1 className="text-gray-500 font-bold mb-4">Your History</h1>
       {authContext?.loading ? (
         <p>Loading...</p>
       ) : orders.length === 0 ? (
